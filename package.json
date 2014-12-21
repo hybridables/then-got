@@ -1,7 +1,7 @@
 {
   "name": "then-got",
   "version": "0.0.0",
-  "description": "Simple and promised HTTP/HTTPS requests",
+  "description": "Simplified and promised HTTP/HTTPS requests, sindresorhus/got",
   "scripts": {
     "lint": "jshint . && jscs . --reporter inline",
     "test": "mocha",

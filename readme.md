@@ -4,7 +4,7 @@
 [![coverage status][coveralls-img]][coveralls-url]
 [![deps status][daviddm-img]][daviddm-url]
 
-> Simple and promised HTTP/HTTPS requests
+> Simplified and promised HTTP/HTTPS requests, sindresorhus/got
 
 ## Install
 ```bash
