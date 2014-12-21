@@ -1,2 +1,2 @@
-## v0.0.0 / December 21, 2014
-- init commits
+## v1.0.0 / December 21, 2014
+- release
