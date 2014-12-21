@@ -3,6 +3,7 @@
 [![build status][travis-img]][travis-url]
 [![coverage status][coveralls-img]][coveralls-url]
 [![deps status][daviddm-img]][daviddm-url]
+==
 
 > Simplified and promised HTTP/HTTPS requests, sindresorhus/got
 
