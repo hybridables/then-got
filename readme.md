@@ -1,9 +1,4 @@
-[![npm version][npmjs-img]][npmjs-url]
-[![mit license][license-img]][license-url]
-[![build status][travis-img]][travis-url]
-[![coverage status][coveralls-img]][coveralls-url]
-[![deps status][daviddm-img]][daviddm-url]
-==
+## [![npm][npmjs-img]][npmjs-url] [![mit license][license-img]][license-url] [![build status][travis-img]][travis-url] [![coverage status][coveralls-img]][coveralls-url] [![deps status][daviddm-img]][daviddm-url]
 
 > Simplified and promised HTTP/HTTPS requests, sindresorhus/got
 
@@ -18,12 +13,16 @@ npm test
 > For more use-cases see the [tests](./test.js)
 
 ```js
-var thenGot = require('then-got');
+var assert = require('assert');
+var got = require('then-got');
+
+got('http://todomvc.com')
+    .then(function fulfilled(res) {
+      //=> <!doctype html> ...
+      assert.ok(startsWith(res, '<!doctype html>'));
+      assert.ok(res.length >= 1000);
+    });
 ```
-
-
-## API / CLI
-
 
 ## Author
 **Charlike Mike Reagent**
