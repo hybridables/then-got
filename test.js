@@ -20,4 +20,12 @@ describe('then-got:', function() {
       done();
     });
   });
+
+  it('should handle errors correctly', function(done) {
+    got('http://todomvc.co534jh53k4j5m')
+    .catch(function rejected(err) {
+      assert.ok(err)
+      done();
+    });
+  });
 });
