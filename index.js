@@ -10,11 +10,14 @@
 var got = require('got');
 var Deferred = require('native-or-another');
 
-module.exports = function thenGot(url, opts) {
+module.exports = thenGot;
+
+function thenGot(url, opts) {
   var defer = new Deferred();
   opts = opts || {};
+  var gotify = opts.method ? got[opts.method.toLowerCase()] : got;
 
-  got(url, opts, function gotCallback(err, res) {
+  gotify(url, opts, function gotCallback(err, res) {
     if (err) {
       return defer.reject(err);
     }
@@ -22,4 +25,10 @@ module.exports = function thenGot(url, opts) {
   });
 
   return defer.promise;
-};
+}
+
+Object.keys(got).forEach(function(method) {
+  thenGot[method] = function(url, opts) {
+    return thenGot(url, opts);
+  };
+});

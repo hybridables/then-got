@@ -9,14 +9,24 @@
 
 var assert = require('assert');
 var got = require('./index');
-var startsWith = require('starts-with');
 
 describe('then-got:', function() {
   it('should handle optional `options`', function(done) {
     got('http://todomvc.com')
     .then(function fulfilled(res) {
-      assert.ok(startsWith(res, '<!doctype html>'));
-      assert.ok(res.length >= 1000);
+      var firstChar = res[0];
+      assert.ok(firstChar, '<');
+      assert.ok(res.length >= 100);
+      done();
+    });
+  });
+
+  it('should can define method', function(done) {
+    got.get('http://todomvc.com')
+    .then(function fulfilled(res) {
+      var firstChar = res[0];
+      assert.ok(firstChar, '<');
+      assert.ok(res.length >= 100);
       done();
     });
   });

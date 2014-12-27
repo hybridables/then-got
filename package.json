@@ -23,7 +23,6 @@
     "fast",
     "get",
     "got",
-    "gzip",
     "http",
     "https",
     "promise",
@@ -45,10 +44,8 @@
     "native-or-another": "^2.0.0"
   },
   "devDependencies": {
-    "bluebird": "^2.4.1",
     "istanbul-harmony": "^0.3.1",
     "mocha": "^2.0.1",
-    "mocha-lcov-reporter": "^0.0.1",
-    "starts-with": "^0.1.0"
+    "mocha-lcov-reporter": "^0.0.1"
   }
 }
