@@ -13,15 +13,23 @@ npm test
 > For more use-cases see the [tests](./test.js)
 
 ```js
+var startsWith = require('starts-with');
 var assert = require('assert');
 var got = require('then-got');
 
 got('http://todomvc.com')
-    .then(function fulfilled(res) {
-      //=> <!doctype html> ...
-      assert.ok(startsWith(res, '<!doctype html>'));
-      assert.ok(res.length >= 1000);
-    });
+  .then(function fulfilled(res) {
+    //=> <!doctype html> ...
+    assert.ok(startsWith(res, '<!doctype html>'));
+    assert.ok(res.length >= 1000);
+  });
+
+got.get('http://todomvc.com')
+  .then(function fulfilled(res) {
+    //=> <!doctype html> ...
+    assert.ok(startsWith(res, '<!doctype html>'));
+    assert.ok(res.length >= 1000);
+  });
 ```
 
 ## Author
@@ -63,4 +71,4 @@ Released under the [`MIT`][license-url] license.
 
 ***
 
-_Powered and automated by [readdirp + hogan.js](https://github.com/tunnckoCore), December 21, 2014_
+_Powered and automated by [readdirp + hogan.js](https://github.com/tunnckoCore), December 27, 2014_
