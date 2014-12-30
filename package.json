@@ -1,6 +1,6 @@
 {
   "name": "then-got",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "Simplified and promised HTTP/HTTPS requests, sindresorhus/got",
   "scripts": {
     "lint": "jshint . && jscs . --reporter inline",
