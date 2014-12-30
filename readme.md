@@ -18,17 +18,21 @@ var assert = require('assert');
 var got = require('then-got');
 
 got('http://todomvc.com')
-  .then(function fulfilled(res) {
-    //=> <!doctype html> ...
-    assert.ok(startsWith(res, '<!doctype html>'));
-    assert.ok(res.length >= 1000);
+  .then(function fulfilled(arr) {
+    var body = arr[0];
+    var stream = arr[1];
+    //=> body === <!doctype html> ...
+    assert.ok(startsWith(body, '<!doctype html>'));
+    assert.ok(body.length >= 1000);
   });
 
 got.get('http://todomvc.com')
-  .then(function fulfilled(res) {
-    //=> <!doctype html> ...
-    assert.ok(startsWith(res, '<!doctype html>'));
-    assert.ok(res.length >= 1000);
+  .then(function fulfilled(arr) {
+    var body = arr[0];
+    var stream = arr[1];
+    //=> body === <!doctype html> ...
+    assert.ok(startsWith(body, '<!doctype html>'));
+    assert.ok(body.length >= 1000);
   });
 ```
 
