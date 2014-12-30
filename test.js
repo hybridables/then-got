@@ -13,20 +13,24 @@ var got = require('./index');
 describe('then-got:', function() {
   it('should handle optional `options`', function(done) {
     got('http://todomvc.com')
-    .then(function fulfilled(res) {
-      var firstChar = res[0];
-      assert.ok(firstChar, '<');
-      assert.ok(res.length >= 100);
+    .then(function fulfilled(values) {
+      var body = values[0];
+      var stream = values[1];
+
+      assert.ok(body[0], '<');
+      assert.ok(body.length >= 100);
       done();
     });
   });
 
   it('should can define method', function(done) {
     got.get('http://todomvc.com')
-    .then(function fulfilled(res) {
-      var firstChar = res[0];
-      assert.ok(firstChar, '<');
-      assert.ok(res.length >= 100);
+    .then(function fulfilled(values) {
+      var body = values[0];
+      var stream = values[1];
+
+      assert.ok(body[0], '<');
+      assert.ok(body.length >= 100);
       done();
     });
   });

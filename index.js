@@ -8,27 +8,6 @@
 'use strict';
 
 var got = require('got');
-var Deferred = require('native-or-another');
+var thenifyAll = require('thenify-all');
 
-module.exports = thenGot;
-
-function thenGot(url, opts) {
-  var defer = new Deferred();
-  opts = opts || {};
-  var gotify = opts.method ? got[opts.method.toLowerCase()] : got;
-
-  gotify(url, opts, function gotCallback(err, res) {
-    if (err) {
-      return defer.reject(err);
-    }
-    return defer.resolve(res);
-  });
-
-  return defer.promise;
-}
-
-Object.keys(got).forEach(function(method) {
-  thenGot[method] = function(url, opts) {
-    return thenGot(url, opts);
-  };
-});
+module.exports = thenifyAll(got, got);

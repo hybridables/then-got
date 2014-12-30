@@ -41,7 +41,7 @@
   },
   "dependencies": {
     "got": "^2.2.0",
-    "native-or-another": "^2.0.0"
+    "thenify-all": "^1.4.0"
   },
   "devDependencies": {
     "bluebird": "^2.4.1",
