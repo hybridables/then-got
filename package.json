@@ -1,6 +1,6 @@
 {
   "name": "then-got",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "Simplified and promisified HTTP/HTTPS requests (`sindresorhus/got`). **Hybrid, Async and Promise API.**",
   "scripts": {
     "lint": "jshint index.js && jscs index.js --reporter inline",
