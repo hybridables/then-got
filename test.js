@@ -23,7 +23,7 @@ describe('then-got:', function() {
     });
   });
 
-  it('should can define method', function(done) {
+  it('should have got`s methods', function(done) {
     got.get('http://todomvc.com')
     .then(function fulfilled(values) {
       var body = values[0];
