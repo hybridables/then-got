@@ -1,7 +1,7 @@
 /**
  * then-got <https://github.com/tunnckoCore/then-got>
  *
- * Copyright (c) 2014 Charlike Mike Reagent, contributors.
+ * Copyright (c) 2014-2015 Charlike Mike Reagent, contributors.
  * Released under the MIT license.
  */
 
