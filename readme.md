@@ -1,6 +1,7 @@
 ## [![npm][npmjs-img]][npmjs-url] [![mit license][license-img]][license-url] [![build status][travis-img]][travis-url] [![coverage status][coveralls-img]][coveralls-url] [![deps status][daviddm-img]][daviddm-url]
 
-> Simplified and promised HTTP/HTTPS requests, sindresorhus/got
+> Simplified and promisified HTTP/HTTPS requests (`sindresorhus/got`).  
+**[Hybrid][hybridify], Async and Promise API.**
 
 ## Install
 ```bash
@@ -17,23 +18,37 @@ var startsWith = require('starts-with');
 var assert = require('assert');
 var got = require('then-got');
 
-got('http://todomvc.com')
-  .then(function fulfilled(arr) {
-    var body = arr[0];
-    var stream = arr[1];
-    //=> body === <!doctype html> ...
-    assert.ok(startsWith(body, '<!doctype html>'));
-    assert.ok(body.length >= 1000);
-  });
+got.get('http://www.tunnckocore.tk', function(err, res) {
+  // as usual
 
-got.get('http://todomvc.com')
-  .then(function fulfilled(arr) {
-    var body = arr[0];
-    var stream = arr[1];
-    //=> body === <!doctype html> ...
-    assert.ok(startsWith(body, '<!doctype html>'));
-    assert.ok(body.length >= 1000);
-  });
+  if (err) {
+    console.error(err);
+    return;
+  }
+
+  console.log('from callback api')
+  
+
+  var body = res[0];
+  var stream = res[1];
+
+  //=> body === <!DOCTYPE html> ...
+
+  assert.ok(startsWith(body, '<!DOCTYPE html>'));
+  assert.ok(body.length >= 1000);
+})
+.then(function fulfilled(res) {
+  var body = res[0];
+  var stream = res[1];
+
+  //=> body === <!DOCTYPE html> ...
+  
+  assert.ok(startsWith(body, '<!DOCTYPE html>'));
+  assert.ok(body.length >= 1000);
+
+  console.log('from promise api')
+})
+.catch(console.error);
 ```
 
 
@@ -76,4 +91,6 @@ Released under the [`MIT`][license-url] license.
 
 ***
 
-_Powered and automated by [readdirp + hogan.js](https://github.com/tunnckoCore), December 27, 2014_
+_Powered and automated by [kdf](https://github.com/tunnckoCore), January 24, 2015_
+
+[hybridify]: https://github.com/tunnckoCore/hybridify
