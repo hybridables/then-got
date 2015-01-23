@@ -8,6 +8,6 @@
 'use strict';
 
 var got = require('got');
-var thenifyAll = require('thenify-all');
+var hybridifyAll = require('hybridify-all');
 
-module.exports = thenifyAll(got, got);
+module.exports = hybridifyAll(got, got);

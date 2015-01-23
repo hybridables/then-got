@@ -1,9 +1,9 @@
 {
   "name": "then-got",
   "version": "1.0.2",
-  "description": "Simplified and promised HTTP/HTTPS requests, sindresorhus/got",
+  "description": "Simplified and promisified HTTP/HTTPS requests (`sindresorhus/got`). **Hybrid, Async and Promise API.**",
   "scripts": {
-    "lint": "jshint . && jscs . --reporter inline",
+    "lint": "jshint index.js && jscs index.js --reporter inline",
     "test": "mocha",
     "test-cov": "istanbul cover _mocha",
     "test-travis": "istanbul cover _mocha --report lcovonly"
@@ -27,10 +27,17 @@
     "https",
     "promise",
     "promises",
+    "promises-aplus",
     "request",
     "requests",
     "simple",
     "simplified",
+    "hybridify",
+    "hybridify-all",
+    "all",
+    "hybrid",
+    "hybridifies",
+    "hybridables",
     "url",
     "util",
     "utils"
@@ -41,12 +48,12 @@
   },
   "dependencies": {
     "got": "^2.2.0",
-    "thenify-all": "^1.4.0"
+    "hybridify-all": "^1.0.0"
   },
   "devDependencies": {
-    "bluebird": "^2.4.1",
+    "bluebird": "^2.8.2",
     "istanbul-harmony": "^0.3.1",
-    "mocha": "^2.0.1",
+    "mocha": "*",
     "mocha-lcov-reporter": "^0.0.1"
   }
 }
