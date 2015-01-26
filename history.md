@@ -1,7 +1,12 @@
 
 
+## v1.0.4 / January 26, 2015
+- Release v1.0.4 / npm@v1.0.4
+- rebuild readme
+- update repo links, bumps
+
 ## v1.0.3 / January 24, 2015
-- Release v1.0.3
+- Release v1.0.3 / npm@v1.0.3
 - update readme
 - replace `thenify-all` with `hybridify-all`
 - fix test title
