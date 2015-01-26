@@ -69,17 +69,17 @@ Released under the [`MIT`][license-url] license.
 [npmjs-url]: http://npm.im/then-got
 [npmjs-img]: https://img.shields.io/npm/v/then-got.svg?style=flat&label=then-got
 
-[coveralls-url]: https://coveralls.io/r/tunnckoCore/then-got?branch=master
-[coveralls-img]: https://img.shields.io/coveralls/tunnckoCore/then-got.svg?style=flat
+[coveralls-url]: https://coveralls.io/r/hybridables/then-got?branch=master
+[coveralls-img]: https://img.shields.io/coveralls/hybridables/then-got.svg?style=flat
 
-[license-url]: https://github.com/tunnckoCore/then-got/blob/master/license.md
+[license-url]: https://github.com/hybridables/then-got/blob/master/license.md
 [license-img]: https://img.shields.io/badge/license-MIT-blue.svg?style=flat
 
-[travis-url]: https://travis-ci.org/tunnckoCore/then-got
-[travis-img]: https://img.shields.io/travis/tunnckoCore/then-got.svg?style=flat
+[travis-url]: https://travis-ci.org/hybridables/then-got
+[travis-img]: https://img.shields.io/travis/hybridables/then-got.svg?style=flat
 
-[daviddm-url]: https://david-dm.org/tunnckoCore/then-got
-[daviddm-img]: https://img.shields.io/david/tunnckoCore/then-got.svg?style=flat
+[daviddm-url]: https://david-dm.org/hybridables/then-got
+[daviddm-img]: https://img.shields.io/david/hybridables/then-got.svg?style=flat
 
 [author-gratipay]: https://gratipay.com/tunnckoCore
 [author-twitter]: https://twitter.com/tunnckoCore
@@ -87,10 +87,10 @@ Released under the [`MIT`][license-url] license.
 [author-npmjs]: https://npmjs.org/~tunnckocore
 
 [contrib-more]: http://j.mp/1stW47C
-[contrib-graf]: https://github.com/tunnckoCore/then-got/graphs/contributors
+[contrib-graf]: https://github.com/hybridables/then-got/graphs/contributors
 
 ***
 
 _Powered and automated by [kdf](https://github.com/tunnckoCore), January 24, 2015_
 
-[hybridify]: https://github.com/tunnckoCore/hybridify
+[hybridify]: https://github.com/hybridables/hybridify
