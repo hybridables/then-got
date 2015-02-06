@@ -11,6 +11,14 @@ var assert = require('assert');
 var got = require('./index');
 
 describe('then-got:', function() {
+  it('should have `.hybridify` method as all hybrids', function(done) {
+    assert.ok(got.hybridify);
+    assert.strictEqual(typeof got.hybridify, 'function');
+
+    var newHybrid = got.get('http://todomvc.com');
+    assert.strictEqual(typeof newHybrid.hybridify, 'function');
+    done();
+  });
   it('should handle optional `options`', function(done) {
     got('http://todomvc.com')
     .then(function fulfilled(values) {
