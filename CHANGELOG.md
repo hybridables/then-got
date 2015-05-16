@@ -1,5 +1,10 @@
 
 
+## 1.0.6 - 2015-05-17, 2015
+- Release v1.0.6 / npm@v1.0.6
+- update repo template
+- apply `feross/standard`
+
 ## 1.0.5 - 2015-02-26, 2015
 - Release v1.0.5 / npm@v1.0.5
 - add new test case
