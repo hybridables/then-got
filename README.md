@@ -16,13 +16,43 @@ npm test
 > For more use-cases see the [tests](./test.js)
 
 ```js
-var thenGot = require('then-got');
+var startsWith = require('starts-with')
+var assert = require('assert')
+var got = require('then-got')
+
+got.get('http://www.tunnckocore.tk', function cb (err, res) {
+  if (err) {
+    console.error(err)
+    return
+  }
+
+  var body = res[0]
+  var stream = res[1]
+
+  //=> body === '<!DOCTYPE html> ...'
+  assert.ok(startsWith(body, '<!DOCTYPE html>'))
+  assert.ok(body.length >= 1000)
+
+  console.log('from callback api')
+})
+.then(function fulfilled (res) {
+  var body = res[0]
+  var stream = res[1]
+
+  //=> body === '<!DOCTYPE html> ...'
+  assert.ok(startsWith(body, '<!DOCTYPE html>'))
+  assert.ok(body.length >= 1000)
+
+  console.log('from promise api')
+})
+.catch(console.error)
 ```
+
 
 ## Contributing
 
 Pull requests and stars are always welcome. For bugs and feature requests, [please create an issue](https://github.com/hybridables/then-got/issues/new).  
-But before doing anything, please that read the [CONTRIBUTING.md](./CONTRIBUTING.md) guidelines.
+But before doing anything, please read the [CONTRIBUTING.md](./CONTRIBUTING.md) guidelines.
 
 
 ## [Charlike Make Reagent](http://j.mp/1stW47C) [![new message to charlike][new-message-img]][new-message-url] [![freenode #charlike][freenode-img]][freenode-url]
