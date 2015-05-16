@@ -1,15 +1,12 @@
 {
   "name": "then-got",
   "version": "1.0.5",
-  "description": "Simplified and promisified HTTP/HTTPS requests (`sindresorhus/got`). **Hybrid, Async and Promise API.**",
+  "description": "The simplified HTTP(S) requests. Hybrid, Async and Promise API in same time.",
   "scripts": {
-    "lint": "jshint index.js && jscs index.js --reporter inline",
-    "test": "mocha",
-    "test-cov": "istanbul cover _mocha",
-    "test-travis": "istanbul cover _mocha --report lcovonly"
+    "test": "standard && node test.js"
   },
   "author": {
-    "name": "Charlike Make Reagent",
+    "name": "Charlike Mike Reagent",
     "email": "mameto_100@mail.bg",
     "url": "https://github.com/tunnckoCore"
   },
@@ -44,15 +41,13 @@
   ],
   "license": {
     "type": "MIT",
-    "url": "https://github.com/hybridables/then-got/blob/master/license.md"
+    "url": "https://github.com/hybridables/then-got/blob/master/LICENSE.md"
   },
   "dependencies": {
-    "got": "^2.2.0",
-    "hybridify-all": "~1.0.2"
+    "got": "~3.2.0",
+    "hybridify-all": "~1.0.3"
   },
   "devDependencies": {
-    "bluebird": "^2.8.2",
-    "istanbul-harmony": "~0.3.1",
-    "mocha": "^2.1.0"
+    "assertit": "^0.1.0"
   }
 }

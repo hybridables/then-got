@@ -1,53 +1,54 @@
-/**
- * then-got <https://github.com/tunnckoCore/then-got>
+/*!
+ * then-got <https://github.com/hybridables/then-got>
  *
  * Copyright (c) 2014-2015 Charlike Mike Reagent, contributors.
  * Released under the MIT license.
  */
 
-'use strict';
+'use strict'
 
-var assert = require('assert');
-var got = require('./index');
+var test = require('assertit')
+var thenGot = require('./index')
 
-describe('then-got:', function() {
-  it('should have `.hybridify` method as all hybrids', function(done) {
-    assert.ok(got.hybridify);
-    assert.strictEqual(typeof got.hybridify, 'function');
+test('then-got:', function () {
+  test('should have `.hybridify` method as all hybrids', function (done) {
+    var hybrid = thenGot('http://todomvc.com')
 
-    var newHybrid = got.get('http://todomvc.com');
-    assert.strictEqual(typeof newHybrid.hybridify, 'function');
-    done();
-  });
-  it('should handle optional `options`', function(done) {
-    got('http://todomvc.com')
-    .then(function fulfilled(values) {
-      var body = values[0];
-      var stream = values[1];
+    test.equal(typeof thenGot.hybridify, 'function')
+    test.equal(typeof hybrid.hybridify, 'function')
+    done()
+  })
+  test('should handle optional `options`', function (done) {
+    thenGot('http://todomvc.com')
+    .then(function fulfilled (res) {
+      var body = res[0]
 
-      assert.ok(body[0], '<');
-      assert.ok(body.length >= 100);
-      done();
-    });
-  });
+      test.equal(body[0], '<')
+      test.ok(body.length >= 100)
+      done()
+    })
+  })
+  test('should have got`s methods', function (done) {
+    thenGot.get('http://todomvc.com')
+    .then(function fulfilled (res) {
+      var body = res[0]
 
-  it('should have got`s methods', function(done) {
-    got.get('http://todomvc.com')
-    .then(function fulfilled(values) {
-      var body = values[0];
-      var stream = values[1];
-
-      assert.ok(body[0], '<');
-      assert.ok(body.length >= 100);
-      done();
-    });
-  });
-
-  it('should handle errors correctly', function(done) {
-    got('http://todomvc.co534jh53k4j5m')
-    .catch(function rejected(err) {
-      assert.ok(err);
-      done();
-    });
-  });
-});
+      test.equal(body[0], '<')
+      test.ok(body.length >= 100)
+      done()
+    })
+  })
+  test('should handle errors correctly with promise api', function (done) {
+    thenGot('http://todomvc.co534jh53k4j5m')
+    .catch(function rejected (err) {
+      test.ifError(!err)
+      done()
+    })
+  })
+  test('should handle errors correctly with callback api', function (done) {
+    thenGot('http://todomvc.co534jh53k4j5m', function _callback_ (err) {
+      test.ifError(!err)
+      done()
+    })
+  })
+})
