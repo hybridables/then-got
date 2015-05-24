@@ -1,6 +1,6 @@
 {
   "name": "then-got",
-  "version": "1.0.6",
+  "version": "1.0.7",
   "description": "The simplified HTTP(S) requests. Hybrid, Async and Promise API in same time.",
   "repository": "hybridables/then-got",
   "author": "Charlike Mike Reagent <@tunnckoCore> (http://www.tunnckocore.tk)",
