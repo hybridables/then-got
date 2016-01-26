@@ -1,7 +1,7 @@
 {
   "name": "then-got",
   "version": "1.0.7",
-  "description": "The simplified HTTP(S) requests. Hybrid, Async and Promise API in same time.",
+  "description": "Promisified `simple-get`.",
   "repository": "hybridables/then-got",
   "author": "Charlike Mike Reagent <@tunnckoCore> (http://www.tunnckocore.tk)",
   "main": "index.js",
@@ -10,35 +10,34 @@
     "test": "standard && node test.js"
   },
   "dependencies": {
-    "got": "~3.2.0",
-    "hybridify-all": "~1.0.3"
+    "relike-all": "^2.1.1",
+    "simple-get": "^1.4.3"
   },
   "devDependencies": {
-    "assertit": "^0.1.0"
+    "assertit": "^0.1.0",
+    "is-match": "^0.4.0",
+    "is-node-stream": "^1.0.0",
+    "is-promise": "^2.1.0"
   },
+  "files": [
+    "index.js"
+  ],
   "keywords": [
-    "bluebird",
     "deflate",
     "fast",
     "get",
     "got",
     "http",
-    "https",
-    "promise",
-    "promises",
-    "promises-aplus",
-    "request",
-    "requests",
-    "simple",
-    "simplified",
-    "hybridify",
-    "hybridify-all",
-    "all",
     "hybrid",
-    "hybridifies",
-    "hybridables",
+    "promise",
+    "promisified",
+    "promisify",
+    "relike",
+    "request",
+    "simple",
+    "then",
+    "then-got",
     "url",
-    "util",
-    "utils"
+    "util"
   ]
 }

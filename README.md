@@ -1,6 +1,6 @@
-# then-got [![npmjs.com][npmjs-img]][npmjs-url] [![The MIT License][license-img]][license-url] 
+# [then-got][author-www-url] [![npmjs.com][npmjs-img]][npmjs-url] [![The MIT License][license-img]][license-url] 
 
-> The simplified HTTP(S) requests. Hybrid, Async and Promise API in same time.
+> Promisified `simple-get`.
 
 [![code climate][codeclimate-img]][codeclimate-url] [![standard code style][standard-img]][standard-url] [![travis build status][travis-img]][travis-url] [![coverage status][coveralls-img]][coveralls-url] [![dependency status][david-img]][david-url]
 
@@ -8,7 +8,6 @@
 ## Install
 ```
 npm i then-got --save
-npm test
 ```
 
 
@@ -16,41 +15,33 @@ npm test
 > For more use-cases see the [tests](./test.js)
 
 ```js
-var startsWith = require('starts-with')
-var assert = require('assert')
-var got = require('then-got')
+const thenGot = require('then-got')
+const isStream = require('is-node-stream')
 
-got.get('http://www.tunnckocore.tk', function cb (err, res) {
-  if (err) {
-    console.error(err)
-    return
-  }
+thenGot('http://www.tunnckocore.tk').then(stream => {
+  console.log(isStream(stream)) // => true
+}, console.error)
 
-  var body = res[0]
-  var stream = res[1]
-
-  //=> body === '<!DOCTYPE html> ...'
-  assert.ok(startsWith(body, '<!DOCTYPE html>'))
-  assert.ok(body.length >= 1000)
-
-  console.log('from callback api')
-})
-.then(function fulfilled (res) {
-  var body = res[0]
-  var stream = res[1]
-
-  //=> body === '<!DOCTYPE html> ...'
-  assert.ok(startsWith(body, '<!DOCTYPE html>'))
-  assert.ok(body.length >= 1000)
-
-  console.log('from promise api')
-})
-.catch(console.error)
+// or with simple-get's .concat method
+// to get the content of the page
+thenGot.concat('http://www.tunnckocore.tk').then(res => {
+  const html = res[0]
+  const stream = res[1]
+  console.log(html)
+}, console.error)
 ```
 
 
-## Contributing
+## Related
+- [letta](https://github.com/hybridables/letta): Let's move to promises! Drop-in replacement for `co@4`, but on steroids. Accepts sync, async and generator functions.
+- [letta-value](https://github.com/hybridables/letta-value): Extends `letta` to accept and handles more than functions only. Handles all kind of results from `letta`. Basically, creating promise from everything - strings, arrays, objects, functions, generators, generator functions, promises, streams, child processe
+- [redolent](https://github.com/hybridables/redolent): Simple promisify **everything** (string, array, stream, boolean, sync/async function, etc) with sane defaults.
+- [relike](https://github.com/hybridables/relike): Simple promisify a callback-style function with sane defaults. Support promisify-ing sync functions.
+- [relike-all](https://github.com/hybridables/relike-all): Promisify all functions in an object, using `relike`.
+- [relike-value](https://github.com/hybridables/relike-value): Create promise from sync, async, string, number, array and so on. Handle completion (results) and errors gracefully! Built on top of `relike`, used by `redolent` to build robust (hybrid) APIs.
 
+
+## Contributing
 Pull requests and stars are always welcome. For bugs and feature requests, [please create an issue](https://github.com/hybridables/then-got/issues/new).  
 But before doing anything, please read the [CONTRIBUTING.md](./CONTRIBUTING.md) guidelines.
 
@@ -63,7 +54,7 @@ But before doing anything, please read the [CONTRIBUTING.md](./CONTRIBUTING.md) 
 [npmjs-url]: https://www.npmjs.com/package/then-got
 [npmjs-img]: https://img.shields.io/npm/v/then-got.svg?label=then-got
 
-[license-url]: https://github.com/hybridables/then-got/blob/master/LICENSE.md
+[license-url]: https://github.com/hybridables/then-got/blob/master/LICENSE
 [license-img]: https://img.shields.io/badge/license-MIT-blue.svg
 
 
@@ -101,5 +92,5 @@ But before doing anything, please read the [CONTRIBUTING.md](./CONTRIBUTING.md) 
 [freenode-url]: http://webchat.freenode.net/?channels=charlike
 [freenode-img]: https://img.shields.io/badge/freenode-%23charlike-5654a4.svg
 
-[new-message-url]: https://github.com/tunnckoCore/messages
-[new-message-img]: https://img.shields.io/badge/send%20me-message-green.svg
+[new-message-url]: https://github.com/tunnckoCore/ama
+[new-message-img]: https://img.shields.io/badge/ask%20me-anything-green.svg

@@ -1,54 +1,44 @@
 /*!
  * then-got <https://github.com/hybridables/then-got>
  *
- * Copyright (c) 2014-2015 Charlike Mike Reagent, contributors.
+ * Copyright (c) 2014-2016 Charlike Mike Reagent <@tunnckoCore> (http://www.tunnckocore.tk)
  * Released under the MIT license.
  */
+
+/* jshint asi:true */
 
 'use strict'
 
 var test = require('assertit')
 var thenGot = require('./index')
+var isPromise = require('is-promise')
+var isStream = require('is-node-stream')
 
-test('then-got:', function () {
-  test('should have `.hybridify` method as all hybrids', function (done) {
-    var hybrid = thenGot('http://todomvc.com')
+test('should thenGot be function and have .get, .post, .concat methods', function (done) {
+  console.log('TRAVIS=', process.env.TRAVIS)
+  test.strictEqual(typeof thenGot, 'function')
+  test.strictEqual(typeof thenGot.get, 'function')
+  test.strictEqual(typeof thenGot.post, 'function')
+  test.strictEqual(typeof thenGot.concat, 'function')
+  done()
+})
 
-    test.equal(typeof thenGot.hybridify, 'function')
-    test.equal(typeof hybrid.hybridify, 'function')
+test('should thenGot(url) return promise', function (done) {
+  var promise = thenGot('http://ipecho.net')
+  test.strictEqual(isPromise(promise), true)
+  done()
+})
+
+test('should thenGot.concat(url) return promise and get data', function (done) {
+  var promise = thenGot.concat('http://ipecho.net')
+
+  promise.then(function (res) {
+    var data = res[0].toString()
+    var stream = res[1]
+
+    test.strictEqual(isPromise(promise), true)
+    test.strictEqual(isStream(stream), true)
+    test.strictEqual(data.indexOf('<title>') !== -1, true)
     done()
-  })
-  test('should handle optional `options`', function (done) {
-    thenGot('http://todomvc.com')
-    .then(function fulfilled (res) {
-      var body = res[0]
-
-      test.equal(body[0], '<')
-      test.ok(body.length >= 100)
-      done()
-    })
-  })
-  test('should have got`s methods', function (done) {
-    thenGot.get('http://todomvc.com')
-    .then(function fulfilled (res) {
-      var body = res[0]
-
-      test.equal(body[0], '<')
-      test.ok(body.length >= 100)
-      done()
-    })
-  })
-  test('should handle errors correctly with promise api', function (done) {
-    thenGot('http://todomvc.co534jh53k4j5m')
-    .catch(function rejected (err) {
-      test.ifError(!err)
-      done()
-    })
-  })
-  test('should handle errors correctly with callback api', function (done) {
-    thenGot('http://todomvc.co534jh53k4j5m', function _callback_ (err) {
-      test.ifError(!err)
-      done()
-    })
-  })
+  }, done)
 })

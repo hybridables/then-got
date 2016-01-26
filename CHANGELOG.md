@@ -41,3 +41,6 @@
 ## 1.0.0 - 2014-12-21
 - Release v1.0.0 / npm@v1.0.0
 - first release
+
+## 0.0.0 - 2014-12-21
+- Initial commit
