@@ -1,6 +1,6 @@
 {
   "name": "then-got",
-  "version": "1.0.7",
+  "version": "2.0.0",
   "description": "Promisified `simple-get`.",
   "repository": "hybridables/then-got",
   "author": "Charlike Mike Reagent <@tunnckoCore> (http://www.tunnckocore.tk)",

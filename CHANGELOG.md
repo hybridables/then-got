@@ -1,5 +1,9 @@
 
 
+## 2.0.0 - 2016-01-26
+- Release v2.0.0 / npm@v2.0.0
+- update to use `relike-all` and `simple-get`
+
 ## 1.0.7 - 2015-05-24
 - Release v1.0.7 / npm@v1.0.7
 - apply new style for `package.json`
