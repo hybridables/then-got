@@ -10,7 +10,7 @@
     "test": "standard && node test.js"
   },
   "dependencies": {
-    "relike-all": "^2.1.1",
+    "relike-all": "^2.2.0",
     "simple-get": "^1.4.3"
   },
   "devDependencies": {
